@@ -4,12 +4,12 @@ namespace globeChekModels
 {
     public class Models
     {
-        public String clientID { get; set; }
-        public String clientName { get; set; }
-        public String deviceID { get; set; }
-        public String deviceName { get; set; }
-        public String locationID { get; set; }
-        public String locationName { get; set; }
+        public string clientID { get; set; }
+        public string clientName { get; set; }
+        public string deviceID { get; set; }
+        public string deviceName { get; set; }
+        public string locationID { get; set; }
+        public string locationName { get; set; }
 
     }
 }
