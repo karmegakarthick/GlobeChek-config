@@ -32,7 +32,7 @@ namespace globeChekServices
         public void closeConnection()
         {
             SqlConnection connection = new SqlConnection(sqlConnection);
-            connection.Close();
+            connection.Close(); 
         }
 
     }
