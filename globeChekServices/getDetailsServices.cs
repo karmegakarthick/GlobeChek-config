@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using globeChekModels;
 using Microsoft.Data.SqlClient;
 using MySqlConnector;
 
@@ -47,6 +48,7 @@ namespace globeChekServices
 
         public object getConfigDetailsAsync(String clientName)
         {
+            Models models = new Models();
             List<object> res = new List<object>();
             var connection = new MySqlConnection(sqlConnection);
             string SpName = "ConfigCreation";
@@ -58,21 +60,30 @@ namespace globeChekServices
             var reader = command.ExecuteReader();
             while (reader.Read())
             {
-                List<object> result = new List<object>();
-                var clientID = reader.GetValue(0);
-                var clientname = reader.GetValue(1);
-                var deviceName = reader.GetValue(2);
-                var deviceID = reader.GetValue(3);
-                var locationID = reader.GetValue(4);
-                var locationName = reader.GetValue(5);
-                result.Add(clientID);
-                result.Add(clientname);
-                result.Add(deviceName);
-                result.Add(deviceID);
-                result.Add(locationID);
-                result.Add(locationName);
+                var storedProc = new Models
+                {
+                    clientID = (string)reader.GetValue(0),
+                    clientName = (string)reader.GetValue(1),
+                    deviceName = (string)reader.GetValue(2),
+                    deviceID = (string)reader.GetValue(3),
+                    locationID = (string)reader.GetValue(4),
+                    locationName = (string)reader.GetValue(5)
+                };
+                //List<Models> result = new List<Models>();
+                //models.clientID = (string)reader.GetValue(0);
+                //models.clientName = (string)reader.GetValue(1);
+                //models.deviceName = (string)reader.GetValue(2);
+                //models.deviceID = (string)reader.GetValue(3);
+                //models.locationID = (string)reader.GetValue(4);
+                //models.locationName = (string)reader.GetValue(5);
+                //result.Add(models.clientID);
+                //result.Add(models.clientName);
+                //result.Add(models.deviceName);
+                //result.Add(models.deviceID);
+                //result.Add(models.locationID);
+                //result.Add(models.locationName);
 
-                res.Add(result);
+                res.Add(storedProc);
 
 
 
