@@ -30,6 +30,7 @@ namespace GlobeChek_config
             services.AddControllers();
             services.AddMvcCore();
             services.AddTransient<IGetDetails, getDetailsServices>();
+            services.AddTransient<IConnectionServices, ConnectionServices>();
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
         }
 
