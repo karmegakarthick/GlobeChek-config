@@ -7,13 +7,12 @@ using MySqlConnector;
 
 namespace globeChekServices
 {
-    public class ConnectionServices
+    public class ConnectionServices : IConnectionServices
     {
         public String sqlConnection;
         public ConnectionServices()
         {
             sqlConnection = "server=globechek-qa.mysql.database.azure.com;user id=gcadmin@globechek-qa.mysql.database.azure.com;database=gc4_gcdev;password=P@ssword12345";
-            //sqlConnection = "Data Source=DELL;Initial Catalog=passenger;Integrated Security=True";
 
         }
         public MySqlCommand getConnection(String SpName)
@@ -26,7 +25,7 @@ namespace globeChekServices
 
         public void openConnection()
         {
-            SqlConnection connection = new SqlConnection(sqlConnection);
+            MySqlConnection connection = new MySqlConnection(sqlConnection);
             connection.Open();
         }
 

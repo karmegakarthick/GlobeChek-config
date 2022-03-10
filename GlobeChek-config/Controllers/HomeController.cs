@@ -19,8 +19,12 @@ namespace GlobeChek_config.Controllers
         [HttpGet("getGlobeDetails")]
         public IActionResult getDetails([FromQuery] String client)
         {
+            if(client != null)
+            {
                 var res = _IGetDetails.getConfigDetailsAsync(client);
                 return Ok(res);
+            }
+            return Ok("invalid Client");
         }
     }
 }
