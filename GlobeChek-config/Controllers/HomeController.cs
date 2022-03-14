@@ -27,7 +27,7 @@ namespace GlobeChek_config.Controllers
                 var res = _IGetDetails.getConfigDetailsAsync(client);
                 return Ok(res);
             }
-            return Ok("invalid Client");
+            return Ok("client name cannot be empty");
         }
     }
 }
