@@ -32,6 +32,7 @@ namespace GlobeChek_config
             services.AddTransient<IGetDetails, getDetailsServices>();
             services.AddTransient<IConnectionServices, ConnectionServices>();
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
+            services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:8080")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,7 @@ namespace GlobeChek_config
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
