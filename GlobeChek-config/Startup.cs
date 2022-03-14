@@ -51,6 +51,7 @@ namespace GlobeChek_config
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //
             });
         }
     }
