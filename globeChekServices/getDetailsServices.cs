@@ -37,8 +37,8 @@ namespace globeChekServices
             {
                 var storedProc = new Models
                 {
-                    clientID = (string)reader.GetValue(0),
-                    clientName = (string)reader.GetValue(1),
+                    clientName = (string)reader.GetValue(0),
+                    clientID = (string)reader.GetValue(1),
                     deviceName = (string)reader.GetValue(2),
                     deviceID = (string)reader.GetValue(3),
                     locationID = (string)reader.GetValue(4),
