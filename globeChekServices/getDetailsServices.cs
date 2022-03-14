@@ -19,6 +19,7 @@ namespace globeChekServices
             sqlConnection = "server=globechek-qa.mysql.database.azure.com;user id=gcadmin@globechek-qa.mysql.database.azure.com;database=gc4_gcqa_new;password=P@ssword12345";
         }
         ConnectionServices ConnectionServices = new ConnectionServices();
+
         public object getConfigDetailsAsync(String clientName)
         {
             Models models = new Models();

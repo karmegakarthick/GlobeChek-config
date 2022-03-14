@@ -4,11 +4,14 @@ using globeChekServices;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
+using System.Web.Http.Cors;
 
 namespace GlobeChek_config.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    
     public class HomeController : Controller
     {
         public IGetDetails _IGetDetails;
