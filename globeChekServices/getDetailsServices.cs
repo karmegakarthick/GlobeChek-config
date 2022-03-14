@@ -47,7 +47,12 @@ namespace globeChekServices
                 res.Add(storedProc);
             }
             connection.Close();
-            return (res);
+            if (res.Count != 0)
+            {
+                return (res);
+            }
+            return ("invalid client name");
+
         }
     }
 }
