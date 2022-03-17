@@ -20,14 +20,14 @@ namespace globeChekServices
         }
         ConnectionServices ConnectionServices = new ConnectionServices();
 
-        public object getConfigDetailsAsync(String clientName)
+        public object getConfigDetailsAsync()
         {
             Models models = new Models();
             List<object> res = new List<object>();
             var connection = new MySqlConnection(sqlConnection);
             string SpName = "ConfigCreation";
             var command = new MySqlCommand(SpName, connection);
-            command.Parameters.AddWithValue("@orgName", clientName);
+            //command.Parameters.AddWithValue("@orgName", clientName);
             command.CommandType = CommandType.StoredProcedure;
             //MySqlCommand command = _IConnectionServices.getConnection(SpName);
             //_IConnectionServices.openConnection();

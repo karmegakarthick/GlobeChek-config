@@ -20,14 +20,12 @@ namespace GlobeChek_config.Controllers
             _IGetDetails = getDetails;
         }
         [HttpGet("getGlobeDetails")]
-        public IActionResult getDetails([FromQuery] String client)
+        public IActionResult getDetails()
         {
-            if(client != null)
-            {
-                var res = _IGetDetails.getConfigDetailsAsync(client);
+
+                var res = _IGetDetails.getConfigDetailsAsync();
                 return Ok(res);
-            }
-            return Ok("client name cannot be empty");
+            
         }
     }
 }
