@@ -8,6 +8,6 @@ namespace globeChekServices
 {
     public interface IGetDetails
     {
-        public object getConfigDetailsAsync(String clientName);
+        public object getConfigDetailsAsync();
     }
 }
