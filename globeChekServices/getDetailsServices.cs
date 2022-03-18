@@ -11,7 +11,7 @@ namespace globeChekServices
 {
     public class getDetailsServices : IGetDetails
     {
-         public String sqlConnection;
+        public String sqlConnection;
         public IConnectionServices _IConnectionServices;
         public getDetailsServices(IConnectionServices connectionServices )
         {
@@ -20,14 +20,14 @@ namespace globeChekServices
         }
         ConnectionServices ConnectionServices = new ConnectionServices();
 
-        public object getConfigDetailsAsync()
+        public object getConfigDetailsAsync(string ClientName)
         {
             Models models = new Models();
             List<object> res = new List<object>();
             var connection = new MySqlConnection(sqlConnection);
             string SpName = "ConfigCreation";
             var command = new MySqlCommand(SpName, connection);
-            //command.Parameters.AddWithValue("@orgName", clientName);
+            command.Parameters.AddWithValue("@ClientName", ClientName);
             command.CommandType = CommandType.StoredProcedure;
             //MySqlCommand command = _IConnectionServices.getConnection(SpName);
             //_IConnectionServices.openConnection();
@@ -54,5 +54,7 @@ namespace globeChekServices
             return ("invalid client name");
 
         }
+
+
     }
 }
