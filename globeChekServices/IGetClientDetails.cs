@@ -2,14 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace globeChekServices
 {
-    public interface IGetDetails
+    public interface IGetClientDetails
     {
-        public object getConfigDetailsAsync(string ClientName);
+        public List<ClientModel> GetClient();
     }
-
-
 }

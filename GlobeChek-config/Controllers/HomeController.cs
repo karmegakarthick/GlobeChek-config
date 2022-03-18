@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using System.Web.Http.Cors;
+using globeChekModels;
 
 namespace GlobeChek_config.Controllers
 {
@@ -14,17 +15,26 @@ namespace GlobeChek_config.Controllers
     
     public class HomeController : Controller
     {
-        public IGetDetails _IGetDetails;
-        public HomeController(IGetDetails getDetails)
+        private IGetDetails _IGetDetails;
+        private IGetClientDetails _GetClientDetails;
+        public HomeController(IGetDetails getDetails, IGetClientDetails getClientDetails)
         {
             _IGetDetails = getDetails;
+            _GetClientDetails = getClientDetails;
         }
         [HttpGet("getGlobeDetails")]
-        public IActionResult getDetails()
+        public IActionResult getDetails([FromQuery] string ClientName)
         {
 
-                var res = _IGetDetails.getConfigDetailsAsync();
+                var res = _IGetDetails.getConfigDetailsAsync(ClientName);
                 return Ok(res);
+            
+        }
+        [HttpGet("getClientName")]
+        public IActionResult getClient()
+        {
+            List<ClientModel> res = _GetClientDetails.GetClient();
+            return Ok(res) ;
             
         }
     }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace globeChekModels
 {
-    public class DataModel
+    public class NameFilterModel
     {
-        public object MyProperty { get; set; }
+        public string Name { get; set; }
     }
 }
