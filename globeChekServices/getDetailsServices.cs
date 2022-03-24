@@ -29,6 +29,7 @@ namespace globeChekServices
             var command = new MySqlCommand(SpName, connection);
             command.Parameters.AddWithValue("@ClientName", ClientName);
             command.CommandType = CommandType.StoredProcedure;
+            command.CommandTimeout = 0;
             //MySqlCommand command = _IConnectionServices.getConnection(SpName);
             //_IConnectionServices.openConnection();
             connection.Open();
